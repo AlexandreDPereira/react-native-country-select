@@ -183,8 +183,6 @@ export const BottomSheetModal: React.FC<BottomSheetModalProps> = ({
       statusBarTranslucent={statusBarTranslucent}
       {...props}
     >
-      <SafeAreaProvider>
-        <SafeAreaView style={{ flex: 1 }}>
           <View
             testID="countrySelectContainer"
             style={[styles.container, countrySelectStyle?.container]}
@@ -250,8 +248,6 @@ export const BottomSheetModal: React.FC<BottomSheetModalProps> = ({
               </Animated.View>
             </Animated.View>
           </View>
-        </SafeAreaView>
-      </SafeAreaProvider>
     </Modal>
   );
 };
