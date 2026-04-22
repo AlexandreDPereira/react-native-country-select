@@ -221,7 +221,6 @@ export const BottomSheetModal: React.FC<BottomSheetModalProps> = ({
                 countrySelectStyle?.content,
                 {
                   height: sheetHeight,
-                  paddingBottom: -insets.bottom
                 },
               ]}
             >
