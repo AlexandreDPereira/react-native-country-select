@@ -13,6 +13,7 @@ import {
 import {
   SafeAreaProvider,
   SafeAreaView,
+  useSafeAreaInsets,
 } from 'react-native-safe-area-context';
 
 import parseHeight from '../../utils/parseHeight';
@@ -69,6 +70,7 @@ export const BottomSheetModal: React.FC<BottomSheetModalProps> = ({
   const sheetHeight = useRef(new Animated.Value(0)).current;
   const lastHeightRef = useRef(0);
   const dragStartYRef = useRef(0);
+  const insets = useSafeAreaInsets();
 
   useEffect(() => {
     const parsedMinHeight = parseHeight(
@@ -219,6 +221,7 @@ export const BottomSheetModal: React.FC<BottomSheetModalProps> = ({
                 countrySelectStyle?.content,
                 {
                   height: sheetHeight,
+                  paddingBottom: -insets.bottom
                 },
               ]}
             >
