@@ -29,6 +29,10 @@ import {
   IThemeProps,
 } from '../../interface';
 
+import {
+  useSafeAreaInsets,
+} from 'react-native-safe-area-context';
+
 export const CountrySelect: React.FC<ICountrySelectProps> = ({
   visible,
   onClose,
@@ -89,6 +93,8 @@ export const CountrySelect: React.FC<ICountrySelectProps> = ({
 
   const flatListRef = useRef<FlatList<IListItem>>(null);
   const isProgrammaticScroll = useRef(false);
+
+  const insets = useSafeAreaInsets();
 
   const styles = createStyles(theme, modalType, isFullScreen);
   const selectedCountries =
@@ -322,6 +328,7 @@ export const CountrySelect: React.FC<ICountrySelectProps> = ({
           accessibilityHintCountriesList ||
           translations.accessibilityHintCountriesList[language]
         }
+        contentContainerStyle={{paddingBottom: insets.bottom}}
         data={countriesList}
         keyExtractor={keyExtractor}
         renderItem={renderItem}
